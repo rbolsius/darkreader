@@ -1,6 +1,7 @@
 {
     "commonSelectors": [
-        "img, iframe[allowfullscreen], iframe.youtube-player, video, *:not(object):not(body)>embed, object",
+        "img, iframe[allowfullscreen], iframe.youtube-player, iframe[src*=\"http://www.youtube.com/\"], video",
+        "*:not(object):not(body)>embed, object",
         "svg image",
         "*[style*=\"background:url\"]:empty, *[style*=\"background-image:url\"]:empty",
         "*[style*=\"background: url\"]:empty, *[style*=\"background-image: url\"]:empty"
@@ -81,9 +82,12 @@
         {
             "url": "infowars.com",
             "selectors": [
-                "img:not(.icon), iframe[allowfullscreen], iframe.youtube-player, video, *:not(object):not(body)>embed, object svg image",
+                "img:not(.icon)",
+                "iframe[allowfullscreen], iframe.youtube-player, iframe[src*=\"http: //www.youtube.com/\"], video",
+                "*:not(object):not(body)>embed, object svg image",
                 "#header-container",
-                "*[style*=\"background:url\"]:empty, *[style*=\"background-image:url\"]:empty, *[style*=\"background: url\"]:empty, *[style*=\"background-image: url\"]:empty"
+                "*[style*=\"background:url\"]:empty, *[style*=\"background-image:url\"]:empty",
+                "*[style*=\"background: url\"]:empty, *[style*=\"background-image: url\"]:empty"
             ],
             "rules": "body { background-color: white !important; }"
         },
