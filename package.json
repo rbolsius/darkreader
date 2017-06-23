@@ -1,6 +1,6 @@
 {
   "name": "lights-out",
-  "version": "3.4.8",
+  "version": "3.4.9",
   "description": "Based on the popular Dark Reader extension by Alexander Shutov, this extension adds a few enhancements such as an option to also darken the scrollbars of pages.",
   "main": "gruntfile.js",
   "keywords": [
