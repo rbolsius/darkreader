@@ -2,12 +2,12 @@
 
     export class PopupWindow extends xp.Window {
         constructor(ext: Extension) {
-            super({ title: 'Dark Reader settings', scope: ext }, [
+            super({ title: 'Lights Out settings', scope: ext }, [
 
                 //
                 // ---- Logo ----
 
-                new xp.Html({ html: '<img id="logo" src="img/dark-reader-type.svg" alt="Dark Reader" />', flex: 'none' }),
+                new xp.Html({ html: '<h1>Lights Out</h1>', flex: 'none' }),
 
                 //
                 // ---- Top section ----
@@ -43,6 +43,12 @@
                             hotkeyTextTemplate: 'toggle extension\n#HOTKEY',
                             style: 'status'
                         })
+                    ]),
+                    new xp.VBox({ flex: 'stretch', style: 'controlContainer scrollbarToggleContainer' }, [
+                        new Toggle({
+                            value: '{config.styleScrollbars}'
+                        }),
+                        new xp.Label({ style: 'status', text: 'Style scrollbars' })
                     ])
                 ]),
 
@@ -85,7 +91,7 @@
                         // Brightness
                         new UpDown({
                             label: 'Brightness',
-                            step: 0.1,
+                            step: 0.05,
                             value: '{config.brightness}',
                             setterConvertor: (v: number) => (v - 50) / 100,
                             getterConvertor: (v: number) => Math.round(v * 100) + 50,
@@ -99,7 +105,7 @@
                         // Contrast
                         new UpDown({
                             label: 'Contrast',
-                            step: 0.1,
+                            step: 0.05,
                             value: '{config.contrast}',
                             setterConvertor: (v: number) => (v - 50) / 100,
                             getterConvertor: (v: number) => Math.round(v * 100) + 50,
@@ -113,7 +119,7 @@
                         // Grayscale
                         new UpDown({
                             label: 'Grayscale',
-                            step: 0.1,
+                            step: 0.05,
                             value: '{config.grayscale}',
                             setterConvertor: (v: number) => v / 100,
                             getterConvertor: (v: number) => Math.round(v * 100),
@@ -125,7 +131,7 @@
                         // Sepia
                         new UpDown({
                             label: 'Sepia',
-                            step: 0.1,
+                            step: 0.05,
                             value: '{config.sepia}',
                             setterConvertor: (v: number) => v / 100,
                             getterConvertor: (v: number) => Math.round(v * 100),
@@ -157,7 +163,7 @@
                         // Text stroke
                         new UpDown({
                             label: 'Text stroke',
-                            step: 0.1,
+                            step: 0.05,
                             value: '{config.textStroke}',
                             //setterConvertor: (v: number) => (v - 50) / 100,
                             getterConvertor: (v: number) => Math.round(v * 10) / 10,
@@ -195,19 +201,6 @@
                     ])
 
                 ]),
-                
-                //
-                // ---- Title ----
-
-                new xp.Html({
-                    flex: 'none',
-                    html: `
-                    <p class="description">Some things should not be inverted?
-                        Please, send a website address at
-                        <strong>darkReaderApp@gmail.com</strong></p>
-                    `,
-                    enabled: '{enabled}'
-                }),
             ]);
 
             this.initSiteToggleButton(this.siteToggle, ext);

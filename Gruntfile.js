@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                     'img/*.*',
                     'lib/**/*.js',
                     'popup/font/*.*',
-                    'popup/img/*.*',
+                    'popup/img/*.png',
                     'manifest.json',
                 ],
                 dest: 'build/',

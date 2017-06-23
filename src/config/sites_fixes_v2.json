@@ -1,6 +1,6 @@
 {
     "commonSelectors": [
-        "img, iframe, video, *:not(object):not(body)>embed, object",
+        "img, iframe[allowfullscreen], iframe.youtube-player, video, *:not(object):not(body)>embed, object",
         "svg image",
         "*[style*=\"background:url\"]:empty, *[style*=\"background-image:url\"]:empty",
         "*[style*=\"background: url\"]:empty, *[style*=\"background-image: url\"]:empty"
@@ -44,6 +44,14 @@
             ]
         },
         {
+            "url": "fidelity.com",
+            "selectors": [
+            ],
+            "rules": [
+                "#layout-region-content { background-image: none !important; }"
+            ]
+        },
+        {
             "url": "gigaom.com",
             "selectors": "{common}, .bg"
         },
@@ -69,6 +77,15 @@
             "url": "ign.com",
             "selectors": "{common}, .video_embed_content-poster, .video_embed_content-poster-play-button",
             "rules": "#review-promo { background-color: white; }"
+        },
+        {
+            "url": "infowars.com",
+            "selectors": [
+                "img:not(.icon), iframe[allowfullscreen], iframe.youtube-player, video, *:not(object):not(body)>embed, object svg image",
+                "#header-container",
+                "*[style*=\"background:url\"]:empty, *[style*=\"background-image:url\"]:empty, *[style*=\"background: url\"]:empty, *[style*=\"background-image: url\"]:empty"
+            ],
+            "rules": "body { background-color: white !important; }"
         },
         {
             "url": "inpad.com.tw",

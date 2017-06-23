@@ -49,7 +49,8 @@
                     'mail.google.com',
                     'npmjs.com'
                 ],
-                invertListed: false
+                invertListed: false,
+                styleScrollbars: false
             },
             fonts: [
                 'Arial',

@@ -1,0 +1,17 @@
+syntax:glob
+*.js
+Gruntfile.js
+src/lib/**/*.js
+*.map
+*.css
+*.crx
+*.pem
+.git
+GPATH
+GRTAGS
+GTAGS
+
+build/*
+build.zip
+
+node_modules/ 

@@ -56,6 +56,15 @@ html {
     height: 2em;
 }
 
+h1 {
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 34px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 5px 0;
+    color: @color-header;
+}
 
 /*---------------
     Top section
@@ -96,7 +105,11 @@ html {
 .siteToggleContainer {
     flex: none !important;
     margin-right: @size-indent-small;
-    width: 55%;
+    width: 45%;
+}
+
+.scrollbarToggleContainer {
+    margin-left: @size-indent-small;
 }
 
 #siteToggle {
@@ -136,11 +149,11 @@ html {
 #modeToggle {
 
     .darkMode {
-        background-image: url('../img/mode_dark_32.svg');
+        background-image: url('../img/mode_dark_32.png');
     }
 
     .lightMode {
-        background-image: url('../img/mode_light_32.svg');
+        background-image: url('../img/mode_light_32.png');
     }
 }
 

@@ -5,6 +5,8 @@
 !src/lib/**/*.js
 *.map
 *.css
+*.crx
+*.pem
 
 # Build folder
 #-----------------------------------

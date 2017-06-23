@@ -8,11 +8,11 @@
 
     var CONFIG_URLs = {
         darkSites: {
-            remote: 'https://raw.githubusercontent.com/alexanderby/darkreader/master/src/config/dark_sites.json',
+            remote: 'https://raw.githubusercontent.com/rbolsius/lights-out/master/src/config/dark_sites.json',
             local: '../config/dark_sites.json'
         },
         sitesFixes: {
-            remote: 'https://raw.githubusercontent.com/alexanderby/darkreader/master/src/config/sites_fixes_v2.json',
+            remote: 'https://raw.githubusercontent.com/rbolsius/lights-out/master/src/config/sites_fixes_v2.json',
             local: '../config/sites_fixes_v2.json'
         },
         defaultFilterConfig: {

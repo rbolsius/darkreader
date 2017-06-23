@@ -11,6 +11,7 @@
         textStroke: number;
         siteList: string[];
         invertListed: boolean;
+        styleScrollbars: boolean;
 
         // OBSOLETE
         //usefont: boolean;
@@ -34,13 +35,14 @@
     export var DEFAULT_FILTER_CONFIG: DarkReader.FilterConfig = {
         mode: DarkReader.FilterMode.dark,
         brightness: 110,
-        contrast: 90,
+        contrast: 80,
         grayscale: 20,
         sepia: 10,
         useFont: false,
         fontFamily: 'Segoe UI',
         textStroke: 0,
         invertListed: false,
+        styleScrollbars: false,
         siteList: []
     };
 
@@ -96,12 +98,18 @@
                 parts.push('\\n/* Leading rule */');
                 parts.push(this.createLeadingRule(config));
 
-                if (config.mode === FilterMode.dark)
+                if (config.mode === FilterMode.dark) {
                     // Add contrary rule
                     if (fix.selectors) {
                         parts.push('\\n/* Contrary rule */');
                         parts.push(this.createContraryRule(config, fix.selectors.join(',\\n')));
                     }
+
+                    if (config.styleScrollbars) {
+                        parts.push('\\n/* Scrollbar rules */');
+                        parts.push(this.createScrollbarRules(config));
+                    }
+                }
 
                 if (config.useFont || config.textStroke > 0) {
                     // Add text rule
@@ -217,6 +225,67 @@
 
             result += '!important;\\n}';
 
+            // result += '\\n\\n* {\\n  background-attachment: scroll !important;\\n}';
+
+            return result;
+        }
+        
+        // Should be used in 'dark mode' only
+        protected createScrollbarRules(config: FilterConfig): string {
+            var result =
+                '::selection {\\n' +
+                '  background-color: rgba(111, 111, 105, .42);\\n' +
+                '}\\n' +
+                '\\n' +
+                'body::-webkit-scrollbar {\\n' +
+                '  width: 10px;\\n' +
+                '  height: 10px;\\n' +
+                '}\\n' +
+                '\\n' +
+                'body::-webkit-scrollbar-track {\\n' +
+                '  background-color: #171716;\\n' +
+                '}\\n' +
+                '\\n' +
+                'body::-webkit-scrollbar-track-piece {\\n' +
+                '  background-color: #171716;\\n' +
+                '}\\n' +
+                '\\n' +
+                'body::-webkit-scrollbar-thumb {\\n' +
+                '  background-color: #737370;\\n' +
+                '}\\n' +
+                '\\n' +
+                'body::-webkit-scrollbar-thumb:hover {\\n' +
+                '  background-color: #aaaaa4;\\n' +
+                '}\\n' +
+                '\\n' +
+                'body::-webkit-scrollbar-corner {\\n' +
+                '  background-color: #171716;\\n' +
+                '}\\n' +
+                '\\n' +
+                '::-webkit-scrollbar {\\n' +
+                '  width: 10px;\\n' +
+                '  height: 10px;\\n' +
+                '}\\n' +
+                '\\n' +
+                '::-webkit-scrollbar-track {\\n' +
+                '  background-color: #f5f5f5;\\n' +
+                '}\\n' +
+                '\\n' +
+                '::-webkit-scrollbar-track-piece {\\n' +
+                '  background-color: #f5f5f5;\\n' +
+                '}\\n' +
+                '\\n' +
+                '::-webkit-scrollbar-thumb {\\n' +
+                '  background-color: #b3b4b9;\\n' +
+                '}\\n' +
+                '\\n' +
+                '::-webkit-scrollbar-thumb:hover {\\n' +
+                '  background-color: #5f5f5f;\\n' +
+                '}\\n' +
+                '\\n' +
+                '::-webkit-scrollbar-corner {\\n' +
+                '  background-color: #f5f5f5;\\n' +
+                '}\\n';
             return result;
         }
 

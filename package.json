@@ -1,33 +1,16 @@
 {
-  "name": "DarkReader",
-  "version": "3.4.3",
-  "description": "Keep your eyes, Dark Reader",
+  "name": "lights-out",
+  "version": "3.4.8",
+  "description": "Based on the popular Dark Reader extension by Alexander Shutov, this extension adds a few enhancements such as an option to also darken the scrollbars of pages.",
   "main": "gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alexanderby/darkreader.git"
-  },
   "keywords": [
     "dark",
-    "reader",
-    "chrome",
-    "extension",
-    "eye",
-    "care",
     "invert",
-    "colors",
-    "high",
-    "contrast"
+    "colors"
   ],
-  "author": "Alexander Shutov <shutovby@gmail.com> (http://shutov.by/)",
+  "author": "Roger Bolsius",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexanderby/darkreader/issues"
-  },
-  "homepage": "https://github.com/alexanderby/darkreader",
+  "homepage": "",
   "devDependencies": {
     "create-grunt-tasks": "^0.7.1",
     "grunt": "^0.4.5",
@@ -38,5 +21,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-typescript": "^0.6.2",
     "grunt-zip": "^0.17.1"
+  },
+  "repository": {
+    "private": true
   }
 }
